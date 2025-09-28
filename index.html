@@ -4,9 +4,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SvastonLand</title>
 </head>
-<body>
+<body background="gradient-sait.png"></body>
+    <style>
+        .radial-gradient-button {
+            background: radial-gradient(circle, #ff7e5f, #feb47b);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
 
-    <button class="btn">Привилегии <img src="priv-sait.webp" alt=""></button>
+        .radial-gradient-button:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Radial Gradient Button</h1>
+    <button class="radial-gradient-button">Click Me</button>
 
 </body>
+
 </html>
