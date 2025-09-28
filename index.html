@@ -1,32 +1,88 @@
-<html lang="en">
+<html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" value="rqF7NkzCT8TTKmbuJTAh7pYOyhC54tdJGQERJZvj" />
     <title>SvastonLand</title>
-</head>
+
+    <meta name="title" content="HolyWorld - сервер с анархией в игре Minecraft, на версии 1.16.5 и 1.20+.">
+    <meta name="description"
+        content="HolyWorld - сервер с анархией в игре Minecraft, на версии 1.16.5 и 1.20+. Более 1 000 000 игроков уже играют у нас, присоединяйся и ты!">
+    <meta name="keywords"
+        content="сервер, Minecraft, Майнкрафт, HolyWorld, ХолиВорлд, 1.16.5, анархия, 1.16, 1.17, 1.18, 1.19, 1.20, лучший, топ 1, большой онлайн, выживание, сервера анархии, сервера майнкрафт анархия, сервера анархии майнкрафт 1.16, донат, айпи, ip">
+
+    <meta content="HolyWorld - сервер с анархией в игре Minecraft" property="og:title">
+    <meta
+        content="HolyWorld - сервер с анархией в игре Minecraft, на версии 1.16.5 и 1.20+. Более 1 000 000 игроков уже играют у нас, присоединяйся и ты!"
+        property="og:description">
+    <meta content="https://holyworld.ru/source/img/og1.jpg" property="og:image">
+    <meta property="og:type" content="website">
+
+    <meta name="apay-tag" content="3SFHHAADDOYFFKCZ2Y5W7LFDM3AZR5AK"/>
+
+    <link rel="stylesheet" href="/source/css/app.css?id=bb8f6dfadfdd9afe1263224c12a611d0">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+        media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="shortcut icon" href="https://holyworld.ru/source/img/favicon.png" type="image/x-icon">
+
+    </head>
+
 <body>
-    <style>
-        .radial-gradient-button {
-            background: radial-gradient(circle, #95e6b4, #6dd18b);
-            color: white;
-            border: 10px(black);
-            padding: 20px 80px;
-            font-size: 16px;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: transform 0.2s ease;
+    <div id="app">
+        <router-view />
+    </div>
+
+    <noscript class="site-error-loading">
+        Для работы нашего сайта Вам необходимо <a href="https://support.google.com/adsense/answer/12654?hl=ru">включить
+            поддержку JavaScript</a>.
+    </noscript>
+
+    <div id="vk_community_messages"></div>
+
+    <!--[if lte IE 11]>
+            <script type="text/jscript">
+                document.write("Ваш браузер сильно устарел для загрузки данного сайта. Установите браузер по новее!")
+            </script>
+        <![endif]-->
+
+    <script>
+        window.Backend = {
+            csrfToken: 'rqF7NkzCT8TTKmbuJTAh7pYOyhC54tdJGQERJZvj'
         }
+    </script>
 
-        .radial-gradient-button:hover {
-            transform: scale(1.05);
-        }
-    </style>
-</head>
+    <script defer src="https://mc.yandex.ru/metrika/tag.js"></script>
 
-<body>
-    <h1>Пенис</h1>
-    <button class="radial-gradient-button"><font size="3"><b>Привилегии</b></font></button>
+    <script defer type="text/javascript">
+        (function(m, e, t, r, i, k, a) {
+            m[i] = m[i] || function() {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) {
+                if (document.scripts[j].src === r) {
+                    return;
+                }
+            }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(
+                k, a)
+        })
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
+        ym(92830371, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
+    </script>
+
+    <script src="/source/js/manifest.js?id=6584e46d840d741aecf01f53b0479c4e" type="text/javascript"></script>
+    <script src="/source/js/vendor.js?id=316bfb6ee662d03e3537408f6ce83a8e" type="text/javascript"></script>
+    <script src="/source/js/app.js?id=d144cdd4fc458aab34dbf51f7c4c4e65" type="text/javascript"></script>
 </body>
 
 </html>
