@@ -7,22 +7,33 @@
 <body>
     <style>
         .toggleswitch label {
-          display: inline-block;
-          border: 1px solid #000;
-          padding: 5px 10px;
-          margin: 0;
-          font-weight: normal;
-    }
+  background: radial-gradient(circle,#95e6b4, #6dd18b);
+            color: white;
+            border: 10px(black);
+            padding: 10px 79px;
+            position: relative; left: 20px;
+            font-size: 10px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+  display: inline-block;
+  border: 1px solid #000;
+  margin: 0;
+  font-weight: normal;
+}
 
 /* Don't hide the radio button in older browsers */
-        .toggleswitch input:checked,
-        .toggleswitch input:not(:checked) {
-          display: none;
-    }
+.toggleswitch input:checked,
+.toggleswitch input:not(:checked) {
+  display: none;
+}
 
-        .toggleswitch input:checked + label {
-          background: #f00;
-    }
+.toggleswitch input:checked + label {
+  transform: scale(1.05);
+            background: radial-gradient(circle,#70d2da, #9bf3ff);
+            color: rgb(0, 0, 0);
+}
+
 
     </style>
 </head>
