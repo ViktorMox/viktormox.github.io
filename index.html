@@ -109,35 +109,6 @@
         .radial-gradient-button5:hover {
             transform: scale(1.05);
         }
-        
-        .toggleswitch label {
-  background: radial-gradient(circle,#95e6b4, #6dd18b);
-            color: white;
-            border: 10px(black);
-            padding: 10px 79px;
-            position: relative; left: 20px;
-            font-size: 10px;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-  display: inline-block;
-  border: 1px solid #000;
-  margin: 0;
-  font-weight: normal;
-}
-
-/* Don't hide the radio button in older browsers */
-.toggleswitch input:checked,
-.toggleswitch input:not(:checked) {
-  display: none;
-}
-
-.toggleswitch input:checked + label {
-  transform: scale(1.05);
-            background: radial-gradient(circle,#70d2da, #9bf3ff);
-            color: rgb(0, 0, 0);
-}
-
 
     </style>
 </head>
@@ -147,26 +118,11 @@
     <br>
     <br>
     <h3><b><p align="left"><font style="position: relative; left: 15px;"; color="gray"><img src="vibor-sait.png" alt=""></font></p></b></h3>
-    <label for="opt_a">Основатель 🌍</label>
+    <div class="toggleswitch">
+    <input id="opt_a" name="option" type="radio" value="opt_a">
+    <label for="opt_a">Option A</label>
     <input checked="checked" id="opt_b" name="option" type="radio" value="opt_b">
-    <br>
-    <br>
-    <button class="radial-gradient-button1"><b><font size = "5">Анархия 🧨</font></b></button>
-    <br>
-    <br>
-    <h3><b><p align="left"><font style="position: relative; left: 15px;"; color="gray"><img src="vibor2-sait копия.png" alt=""></font></p></b></h3>
-    <button class="radial-gradient-button5"><b><font size = "5">Привилегии 👑</font></b></button>
-    <br>
-    <br>
-    <button class="radial-gradient-button3"><b><font size = "5">Кейс с Донатом 🎁</font>   </b></button>
-    <br>
-    <br>
-    <button class="radial-gradient-button2"><b><font size = "5">Кейс с Негриками 💎</font>   </b></button>
-    <br>
-    <br>
-    <button class="radial-gradient-button4"><b><font size = "5">Кейс с Титулами 💼</font>   </b></button>
-    <br>
-    <br>
-</body>
-
-</html>
+    <label for="opt_b">Option B</label>
+    <input id="opt_c" name="option" type="radio" value="opt_c">
+    <label for="opt_c">Option C</label>    
+</div>
