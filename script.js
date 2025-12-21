@@ -208,7 +208,6 @@ document.querySelectorAll('.metric-item').forEach(item => {
    item.style.opacity = '0';
    item.style.transition = 'all 0.5s ease';
 });
- <!-- Нач.вид кнопок -->
 document.getElementById("button1").style.backgroundColor ="#14ff6e";
 document.getElementById("button2").style.backgroundColor ="#141414";
 document.getElementById("button3").style.backgroundColor ="#141414";
