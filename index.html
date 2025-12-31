@@ -46,9 +46,101 @@ nav.scrolled {
 	margin: 0 auto;
 }
 
+.logo {
+	display: flex;
+	align-items: center;
+	gap: 35px;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.logo-icon {
+	width: 64px;
+	height: 64px;
+	background: linear-gradient(135deg, #00ffcc 0%, #00ccff 100%);
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative; left: 15px;
+	box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
+}
+
+.logo-icon svg {
+	width: 64px;
+	height: 64px;
+	fill: #0a0e27;
+}
+
+.logo-text {
+	font-size: 20px;
+	font-weight: 700;
+	background: linear-gradient(135deg, #61ff9d 0%, #00ffcc 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.nav-links {
+	display: flex;
+	gap: 175px;
+	list-style: none;
+}
+
+.nav-links a {
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 24px;
+	transition: color 0.3s ease;
+	position: relative;
+}
+
+.nav-links a::before {
+	content: '';
+	position: absolute;
+	bottom: -8px;
+	left: 50%;
+	width: 0;
+	height: 3px;
+	background: linear-gradient(90deg, #ff6b6b, #ff8e53);
+	transition: all 0.3s ease;
+	transform: translateX(-50%);
+	border-radius: 2px;
+}
+
+.nav-links a:hover {
+	color: #ff8e53;
+	text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+}
+
+.nav-links a:hover::before {
+	width: 100%;
+}
+
+.nav-links a.active::after {
+	content: '';
+	position: absolute;
+	bottom: -8px;
+	left: 50%;
+	width: 100%;
+	height: 3px;
+	background: linear-gradient(90deg, #00ffcc, #00ccff);
+	transform: translateX(-50%);
+	box-shadow: 0 0 15px rgba(0, 255, 204, 0.6);
+	border-radius: 2px;
+}
+
 	</style>
 </head>
 <body>
-	
+	    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="https://SvastonLand.ru" class="logo">
+                <div class="logo-icon">
+                    <img src="https://s3.iimg.su/s/14/th_gkHokvRxPhsBzCiLaCwpplHfUKFNiZyagAemzfJV.png" alt="">
+                </div>
+                <span class="logo-text">ꜱᴠᴀꜱᴛᴏɴʟᴀɴᴅ</span>
+            </a>
 </body>
 </html>
