@@ -316,7 +316,7 @@ nav.scrolled {
   height: 30px;
   width: 909.5px;
   display: flex;
-  position: relative; left: 623.5px; top: -999px;
+  position: relative; left: 623.5px; top: -1010px;
   background: #141414;
   font-size: 18px;
   font-weight: 600;
@@ -461,7 +461,7 @@ nav.scrolled {
   height: 30px;
   width: 1022px;
   display: flex;
-  position: relative; left: 974.5px; top: -1945px;
+  position: relative; left: 974.5px; top: -1947px;
   background: #141414;
   font-size: 16px;
   font-weight: 600;
@@ -472,7 +472,7 @@ nav.scrolled {
   height: 138.5px;
   width: 200px;
   display: flex;
-  position: relative; left: 974.5px; top: -1945px;
+  position: relative; left: 974.5px; top: -1943px;
   background: #141414;
   font-size: 24px;
   font-weight: 600;
@@ -494,7 +494,7 @@ nav.scrolled {
   height: 138.5px;
   width: 200px;
   display: flex;
-  position: relative; left: 1324px; top: -2873px;
+  position: relative; left: 1324px; top: -2871px;
   background: #141414;
   font-size: 24px;
   font-weight: 600;
@@ -539,6 +539,28 @@ nav.scrolled {
   width: 200px;
   display: flex;
   position: relative; left: 42.5%; top: -1000px;
+  background: #141414;
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+}
+
+.con15 {
+  height: 30px;
+  width: 1022px;
+  display: flex;
+  position: relative; left: 975.5px; top: -2864px;
+  background: #141414;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
+
+.img15 {
+  height: 138.5px;
+  width: 200px;
+  display: flex;
+  position: relative; left: 974.5px; top: -2860px;
   background: #141414;
   font-size: 24px;
   font-weight: 600;
