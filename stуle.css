@@ -768,3 +768,33 @@ nav.scrolled {
   background:#ef4444; 
   color:#2b0000; 
 }
+.mc-button {
+    text-decoration: none;
+    font-weight: bold;
+    /* Убираем любое позиционирование, если оно было */
+    left: 625px;
+    bottom: 1000px;
+    position: relative;
+    z-index: 1;
+    color: gray;
+    text-align: left;
+    display: inline-block;
+    padding: 10px 25px;
+    background: #141414;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.5s ease;
+    /* Убрал left: 175px, чтобы кнопка была под текстом */
+    border: 1px solid rgba(92, 255, 154, 0.1); /* Легкая рамка в цвет ваших иконок */
+    cursor: pointer;
+    
+    transition: background 0.2s;
+}
+
+.mc-button:hover {
+    background: #303030;
+    transition: all 0.1s ease-in;
+    color: white;
+}
