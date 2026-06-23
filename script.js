@@ -150,4 +150,44 @@ document.addEventListener('DOMContentLoaded', () => {
             showRank("knight");
         }
     }
+
+    // ───── МОДАЛЬНОЕ ОКНО ДЛЯ ПРОСМОТРА КРАФТОВ (LIGHTBOX) ─────
+    const lightbox = document.getElementById('image-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.querySelector('.lightbox-close');
+
+    if (lightbox && lightboxImg) {
+        document.querySelectorAll('.item-image img').forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.remove('hidden');
+            });
+        });
+
+        if (lightboxClose) {
+            lightboxClose.addEventListener('click', closeLightbox);
+        }
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+                closeLightbox();
+            }
+        });
+
+        function closeLightbox() {
+            lightbox.classList.add('hidden');
+            setTimeout(() => {
+                if (lightbox.classList.contains('hidden')) {
+                    lightboxImg.src = '';
+                }
+            }, 300);
+        }
+    }
 });
