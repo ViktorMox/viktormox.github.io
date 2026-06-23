@@ -42,8 +42,8 @@ nav {
 }
 
 .logo-icon {
-  width: 48px;
-  height: 48px;
+  width: 64px;
+  height: 64px;
   background: linear-gradient(135deg, #00ffcc 0%, #00ccff 100%);
   border-radius: 10px;
   display: flex;
