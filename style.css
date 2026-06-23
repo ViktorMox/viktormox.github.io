@@ -137,6 +137,27 @@ nav {
   gap: 8px;
   position: sticky;
   top: 100px;
+  max-height: calc(100vh - 130px);
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+/* Красивая кастомная полоса прокрутки для боковой панели */
+.sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 204, 0.4);
 }
 
 /* Область контента */
