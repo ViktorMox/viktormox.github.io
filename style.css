@@ -139,7 +139,10 @@ nav {
   top: 100px;
   max-height: calc(100vh - 130px);
   overflow-y: auto;
-  padding-right: 6px;
+  padding-right: 15px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
 }
 
 /* Красивая кастомная полоса прокрутки для боковой панели */
@@ -663,6 +666,8 @@ nav {
     flex-direction: row;
     overflow-x: auto;
     padding-bottom: 10px;
+    padding-right: 0;
+    border-right: none;
     -webkit-overflow-scrolling: touch;
     gap: 10px;
   }
