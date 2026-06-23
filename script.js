@@ -3,13 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const buttons = [
         'button1', 'button2', 'button3', 'button4', 'button6', 'button7',
         'button8', 'button9', 'button10', 'button11', 'button12', 'button13',
-        'button14', 'button15', 'button16'
+        'button14', 'button15', 'button16', 'button17'
     ];
 
     const contentIds = [
         'Content1', 'Content2', 'Content3', 'Content4', 'Content6', 'Content7',
         'Content8', 'Content9', 'Content10', 'Content11', 'Content12', 'Content13',
-        'Content14'
+        'Content14', 'Content15', 'Content16'
     ];
 
     const buttonContentMap = {
@@ -25,7 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
         'button11': 'Content11',
         'button12': 'Content12',
         'button13': 'Content13',
-        'button16': 'Content14'
+        'button14': 'Content15',
+        'button16': 'Content14',
+        'button17': 'Content16'
     };
 
     buttons.forEach(btnId => {

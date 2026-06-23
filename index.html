@@ -37,6 +37,7 @@
 
             <h4 class="text">СОЗДАНИЕ ГОРОДА</h4>
             <button class="button2" id="button6">🗼 Начало</button>
+            <button class="button2" id="button17">🏢 Городские здания</button>
             <button class="button2" id="button7">⚖️ Века</button>
 
             <h4 class="text">ЭКОНОМИКА</h4>
@@ -50,7 +51,7 @@
             <button class="button2" id="button13">💀 Система спавнеров</button>
             <button class="button2" id="button16">💠 Ресурс-пак</button>
 
-            <h4 class="text">ВОЕННЫЕ ДЕЙСТВИЯ (Скоро)</h4>
+            <h4 class="text">ВОЕННЫЕ ДЕЙСТВИЯ</h4>
             <button class="button2" id="button14">⚔️ Войны</button>
             <button class="button2" id="button15">🧨 скоро...</button>
         </aside>
@@ -194,9 +195,7 @@
                 <div class="con3">• Хлеб</div>
 
                 <div class="con1">Переход на Новый Век</div>
-                <div class="con3">Для перехода в следующий век добудьте требуемые ресурсы, введите команду /t centuries,
-                    выберите нужный век и система спишет ресурсы из вашего инвентаря. Ресурсы нужно сдавать в полном
-                    объёме.</div>
+                <div class="con3">Для перехода в следующий век положите все необходимые ресурсы в городской инвентарь (командой <strong>/t inventory</strong>). После этого введите команду <strong>/t centuries</strong>, выберите нужный век и система автоматически спишет ресурсы из инвентаря города. Ресурсы нужно сдавать сразу в полном объёме.</div>
             </div>
 
             <!-- Content 8 -->
@@ -569,10 +568,7 @@
                                 <td>/t war</td>
                                 <td>Объявить войну.</td>
                             </tr>
-                            <tr>
-                                <td>/t raid</td>
-                                <td>Начать рейд.</td>
-                            </tr>
+
                             <tr>
                                 <td>/t warfare</td>
                                 <td>Меню войны.</td>
@@ -906,6 +902,52 @@
                     <a href="https://disk.yandex.ru/d/H5vVRqip-iFa-w" target="_blank" class="mc-button">Скачать
                         Ресурс-пак</a>
                 </div>
+            </div>
+
+            <!-- Content 15 -->
+            <div id="Content15" class="content-block hidden">
+                <section id="war">
+                    <div class="con1">⚔️ Военные действия (Войны)</div>
+                </section>
+                <div class="con2">🎮IP > mc.svastonland.ru | Версия 1.21.4</div>
+                
+                <div class="con1">Основные команды</div>
+                <div class="con7">• <strong>/war</strong> — открывает меню со списком противников, которым можно объявить войну.</div>
+                <div class="con7">• <strong>/warfare</strong> — меню управления войной (предметы, флаги захвата, штурмовой ТНТ, нейтралитет).</div>
+                <div class="con7">• <strong>/war end</strong> — если по какой-то причине мэр не выбрал исход войны в меню, эта команда принудительно открывает меню с исходом.</div>
+
+                <div class="con1">Требования для объявления войны (Зависимости)</div>
+                <div class="con3">Для того чтобы начать войну, должны быть соблюдены следующие условия:</div>
+                <div class="con7">1. 👥 <strong>Онлайн участников в сети:</strong></div>
+                <div class="con16">У города <strong>защиты</strong> в сети должен находиться мэр и как минимум 2 участника.</div>
+                <div class="con16">У города <strong>атаки</strong> в сети должен находиться мэр и как минимум 1 участник.</div>
+                <div class="con7">2. ⚖️ <strong>Разница в развитии:</strong> Века городов не должны различаться более чем на 1.</div>
+                <div class="con7">3. 🏢 <strong>Военный институт:</strong> У города атаки обязательно должно быть приобретено здание "Военный институт" (покупается в /builds).</div>
+            </div>
+
+            <!-- Content 16 -->
+            <div id="Content16" class="content-block hidden">
+                <section id="builds">
+                    <div class="con1">🏢 Городские здания</div>
+                </section>
+                <div class="con2">🎮IP > mc.svastonland.ru | Версия 1.21.4</div>
+                
+                <div class="con1">Общая информация</div>
+                <div class="con3">Мэр города может улучшать свое поселение, покупая различные функциональные (нефизические) здания. Меню покупки открывается командой: <strong>/builds</strong></div>
+                
+                <div class="con1">Доступные здания:</div>
+                
+                <div class="con17">📦 Городское хранилище</div>
+                <div class="con16">Увеличивает общую вместимость городского инвентаря (доступ к инвентарю: <strong>/inventory</strong> или <strong>/t inventory</strong>).</div>
+
+                <div class="con17">📉 Институт рынка</div>
+                <div class="con16">Уменьшает ежедневный налог на содержание вашего города.</div>
+
+                <div class="con17">🏰 Резиденция мэра</div>
+                <div class="con16">Добавляет дополнительные бонусные чанки к территории города.</div>
+
+                <div class="con17">⚔️ Военный институт</div>
+                <div class="con16">Открывает доступ к военным действиям (необходим для объявления войны другим городам).</div>
             </div>
         </main>
     </div>
