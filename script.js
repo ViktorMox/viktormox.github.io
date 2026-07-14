@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         emperor: {
             name: "Император",
             tag: "emperor",
-            commands: ["/kit", "/anvil", "/broadcast", "/heal [ник]", "/repair all", "/tpahere", "/mute [ник] [время] [причина]", "/unmute"],
+            commands: ["/kit", "/anvil", "/broadcast", "/heal [ник]", "/repair all", "/tpahere", "/mute [ник] [время] [причина]"],
             perks: ["Безлимитные дома", "Телепортация без задержки"]
         }
     };
