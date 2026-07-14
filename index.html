@@ -5,6 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GlobeLand - основная информация[WIKI]</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="GlobeLand Wiki - подробный гайд по выживанию, командам городов, кастомным крафтам и уникальным механикам нашего сервера Minecraft 1.21.4">
+    <meta property="og:title" content="GlobeLand [WIKI] — База знаний сервера">
+    <meta property="og:description" content="Вся информация об экономике, городах, кастомных крафтах и войне на сервере GlobeLand Minecraft 1.21.4.">
+    <meta property="og:image" content="https://i.postimg.cc/S2b5KGjH/logo.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -18,6 +29,14 @@
                 </div>
                 <span class="logo-text">GlobeLand[WIKI]</span>
             </a>
+            
+            <!-- IP Copy Container -->
+            <div class="server-ip-container" id="ip-copy-btn" title="Нажмите, чтобы скопировать IP">
+                <span class="ip-label">IP:</span>
+                <span class="ip-address">mc.globeland.ru</span>
+                <span class="ip-tooltip" id="ip-tooltip">Скопировать</span>
+            </div>
+
             <ul class="nav-links">
                 <li><a href="https://vk.com/globeland" class="active" target="_blank">Группа ВК</a></li>
             </ul>
@@ -27,227 +46,232 @@
     <div class="main-container">
         <!-- Sidebar Navigation -->
         <aside class="sidebar">
-            <button class="button active" id="button1">👑 Основная информация</button>
+            <div class="search-container">
+                <input type="text" id="wiki-search" placeholder="Поиск по wiki...">
+                <span class="search-clear-btn" id="search-clear" title="Очистить поиск">&times;</span>
+            </div>
+
+            <button class="sidebar-btn active" data-target="info">👑 Основная информация</button>
 
             <h4 class="text">НАЧАЛО ИГРЫ</h4>
-            <button class="button2" id="button2">💻 Регистрация</button>
-            <button class="button2" id="button3">🔏 Защита вашего аккаунта</button>
-            <button class="button2" id="button4">⏱️ Первые шаги</button>
+            <button class="sidebar-btn" data-target="reg">💻 Регистрация</button>
+            <button class="sidebar-btn" data-target="safe">🔏 Защита вашего аккаунта</button>
+            <button class="sidebar-btn" data-target="start">⏱️ Первые шаги</button>
 
             <h4 class="text">СОЗДАНИЕ ГОРОДА</h4>
-            <button class="button2" id="button6">🗼 Начало</button>
-            <button class="button2" id="button17">🏢 Городские здания</button>
-            <button class="button2" id="button7">⚖️ Века</button>
+            <button class="sidebar-btn" data-target="town-start">🗼 Начало</button>
+            <button class="sidebar-btn" data-target="builds">🏢 Городские здания</button>
+            <button class="sidebar-btn" data-target="veka">⚖️ Века</button>
 
             <h4 class="text">ЭКОНОМИКА</h4>
-            <button class="button2" id="button8">💵 Заработок</button>
-            <button class="button2" id="button9">💲 Аукцион</button>
+            <button class="sidebar-btn" data-target="money">💵 Заработок</button>
+            <button class="sidebar-btn" data-target="auction">💲 Аукцион</button>
 
             <h4 class="text">УНИКАЛЬНЫЕ ОСОБЕННОСТИ</h4>
-            <button class="button2" id="button10">🌟 Кастомные предметы</button>
-            <button class="button2" id="button11">💎 Команды проекта</button>
-            <button class="button2" id="button12">📜 Донат, описание</button>
-            <button class="button2" id="button13">💀 Система спавнеров</button>
-            <button class="button2" id="button16">💠 Ресурс-пак</button>
+            <button class="sidebar-btn" data-target="custom">🌟 Кастомные предметы</button>
+            <button class="sidebar-btn" data-target="commands">💎 Команды проекта</button>
+            <button class="sidebar-btn" data-target="donate">📜 Донат, описание</button>
+            <button class="sidebar-btn" data-target="spawners">💀 Система спавнеров</button>
+            <button class="sidebar-btn" data-target="pack">💠 Ресурс-пак</button>
 
             <h4 class="text">ВОЕННЫЕ ДЕЙСТВИЯ</h4>
-            <button class="button2" id="button14">⚔️ Войны</button>
-            <button class="button2" id="button15">🧨 скоро...</button>
+            <button class="sidebar-btn" data-target="war">⚔️ Войны</button>
+            <button class="sidebar-btn" data-target="" disabled style="opacity: 0.5; cursor: not-allowed;">🧨 скоро...</button>
         </aside>
 
         <!-- Main Content Area -->
         <main class="content-area">
             <!-- Content 1 -->
-            <div id="Content1" class="content-block">
+            <div id="info" class="content-block">
                 <section id="home">
-                    <div class="con1">👑 Основная информация</div>
+                    <h1 class="con1">👑 Основная информация</h1>
                 </section>
                 <div class="con2">🎮IP > mc.globeland.ru | Версия 1.21.4</div>
-                <div class="con3">О проекте:</div>
-                <div class="con3">Наш проект в Minecraft предлагает вам окунуться в мир XV века. Кроме того, мы
+                <p class="con3"><strong>О проекте:</strong></p>
+                <p class="con3">Наш проект в Minecraft предлагает вам окунуться в мир XV века. Кроме того, мы
                     предлагаем уникальные дополнения к режиму, объединяющие проработанную систему экономики, военных
-                    действий, торговли и политики в мире Minecraft.</div>
-                <div class="con3">Карта мира:</div>
-                <div class="con3">Гарантированное разнообразие развития вашего города и страны обеспечит вам
+                    действий, торговли и политики в мире Minecraft.</p>
+                <p class="con3"><strong>Карта мира:</strong></p>
+                <p class="con3">Гарантированное разнообразие развития вашего города и страны обеспечит вам
                     увлекательный опыт. Возводите здания, формируйте нации, объединяйтесь, участвуйте в войнах, и все
-                    это можно наблюдать на реальной карте земли.</div>
+                    это можно наблюдать на реальной карте земли.</p>
                 <div class="img-container">
                     <img src="https://i.postimg.cc/BZmQVHf7/photo-2025-09-21-21-13-19.jpg" alt="Карта мира">
                 </div>
-                <div class="con3">🎮IP > mc.globeland.ru</div>
-                <div class="con3">🌐 Сайт > easydonate.globeland.ru</div>
-                <div class="con3">📰 Вконтакте › vk.com/GlobeLand</div>
-                <div class="con3">🌍 Карта мира › </div>
+                <p class="con3">🎮IP > mc.globeland.ru</p>
+                <p class="con3">🌐 Сайт > easydonate.globeland.ru</p>
+                <p class="con3">📰 Вконтакте › vk.com/GlobeLand</p>
+                <p class="con3">🌍 Карта мира › </p>
             </div>
 
             <!-- Content 2 -->
-            <div id="Content2" class="content-block hidden">
-                <section id="reg">
-                    <div class="con1">💻 Регистрация</div>
+            <div id="reg" class="content-block hidden">
+                <section id="reg-section">
+                    <h1 class="con1">💻 Регистрация</h1>
                 </section>
                 <div class="con2">🎮IP > mc.globeland.ru | Версия 1.21.4</div>
-                <div class="con3">Поэтапная регистрация:</div>
-                <div class="con3">Этап №1 "Установка"</div>
+                <h2 class="con4">Поэтапная регистрация:</h2>
+                <h3 class="con17">Этап №1 "Установка"</h3>
                 <div class="con2">Для начала установи любой майнкрафт лаунчер и в нём найди версию 1.21.4</div>
-                <div class="con3">Этап №2 "Добавление сервера"</div>
+                <h3 class="con17">Этап №2 "Добавление сервера"</h3>
                 <div class="con2">Заходим в раздел "Сетевая игра"</div>
                 <div class="con5">Далее жмем на кнопочку "Добавить"</div>
                 <div class="con2">В строку "Адрес сервера" вводим IP: mc.globeland.gomc.me</div>
                 <div class="con2">Готово! Теперь вы можете заходить и переходить к этапу №3.</div>
-                <div class="con3">Этап №3 "Регистрация"</div>
+                <h3 class="con17">Этап №3 "Регистрация"</h3>
                 <div class="con2">Заходим на сервер и начинаем регистрацию командой /register [пароль] [пароль].</div>
                 <div class="con2">При входе на сервер нужно будет вводить пароль командой /login [пароль].</div>
             </div>
 
             <!-- Content 3 -->
-            <div id="Content3" class="content-block hidden">
-                <section id="safe">
-                    <div class="con1">🔏 Защита вашего аккаунта</div>
+            <div id="safe" class="content-block hidden">
+                <section id="safe-section">
+                    <h1 class="con1">🔏 Защита вашего аккаунта</h1>
                 </section>
                 <div class="con2">🎮IP > mc.globeland.ru | Версия 1.21.4</div>
-                <div class="con3">Во избежание взломов очень важно правильно защитить свой аккаунт. Придерживайтесь
-                    основных правил безопасности, и ваш аккаунт никогда не взломают!</div>
-                <div class="con3">Двухфакторная аутентификация (2fa)</div>
-                <div class="con2">Итак, как же привязать аккаунт? Вам понадобится выполнить всего 3 шага:</div>
-                <div class="con3">- Шаг 1</div>
+                <p class="con3">Во избежание взломов очень важно правильно защитить свой аккаунт. Придерживайтесь
+                    основных правил безопасности, и ваш аккаунт никогда не взломают!</p>
+                <h2 class="con4">Двухфакторная аутентификация (2fa)</h2>
+                <p class="con3">Итак, как же привязать аккаунт? Вам понадобится выполнить всего 3 шага:</p>
+                <h3 class="con17">- Шаг 1</h3>
                 <div class="con2">Заходим в телеграм-бота "GlobeLand(2fa)"</div>
-                <div class="con3">- Шаг 2</div>
+                <h3 class="con17">- Шаг 2</h3>
                 <div class="con2">Жмем на кнопочку "Start"</div>
-                <div class="con3">- Шаг 3</div>
+                <h3 class="con17">- Шаг 3</h3>
                 <div class="con2">Далее в течение 5 минут заходим на сервер и вводим команду от бота.</div>
                 <div class="con2">Готово! Теперь чат должен выдать сообщение об успехе.</div>
-                <div class="con2">Учтите, что если вы не подключите 2fa, то вам придётся при каждом входе подтверждать
-                    свой вход в телеграме.</div>
+                <p class="con3">Учтите, что если вы не подключите 2fa, то вам придётся при каждом входе подтверждать
+                    свой вход в телеграме.</p>
             </div>
 
             <!-- Content 4 -->
-            <div id="Content4" class="content-block hidden">
-                <section id="start">
-                    <div class="con1">⏱️ Первые шаги</div>
+            <div id="start" class="content-block hidden">
+                <section id="start-section">
+                    <h1 class="con1">⏱️ Первые шаги</h1>
                 </section>
                 <div class="con2">🎮IP > mc.globeland.ru | Версия 1.21.4</div>
-                <div class="con9">При появлении на спавне сервера перед вами стоит задача определить, как поступить
+                <p class="con9">При появлении на спавне сервера перед вами стоит задача определить, как поступить
                     далее. Для начала рекомендуется изучить карту сервера, где вы найдете все существующие города и
                     соответствующую информацию. Теперь можно выбрать: присоединиться к уже существующему городу или
-                    найти подходящее место для создания своего.</div>
+                    найти подходящее место для создания своего.</p>
             </div>
 
             <!-- Content 6 -->
-            <div id="Content6" class="content-block hidden">
+            <div id="town-start" class="content-block hidden">
                 <section id="start2">
-                    <div class="con1">🗼 Начало</div>
+                    <h1 class="con1">🗼 Начало</h1>
                 </section>
                 <div class="con2">🎮IP > mc.globeland.ru | Версия 1.21.4</div>
-                <div class="con1">Добыча ресурсов</div>
-                <div class="con3">Если вы загорелись идеей создать свой Город и начать его развивать, то достаточно
-                    немного потратить времени и изучить данное дело.</div>
-                <div class="con3">Для создания своего Города вам требуется добыть следующие ресурсы:</div>
-                <div class="con3">• 256 дубовых досок</div>
-                <div class="con3">• 128 еловых досок</div>
-                <div class="con3">• 64 земли</div>
-                <div class="con3">• 64 песка</div>
-                <div class="con3">• 128 булыжника</div>
-                <div class="con3">После добычи данных ресурсов вам следует найти место своего поселения и расчистить
-                    чанк от посторонних блоков (включить просмотр чанков F3 + G).</div>
+                <h2 class="con4">Добыча ресурсов</h2>
+                <p class="con3">Если вы загорелись идеей создать свой Город и начать его развивать, то достаточно
+                    немного потратить времени и изучить данное дело.</p>
+                <p class="con3">Для создания своего Города вам требуется добыть следующие ресурсы:</p>
+                <p class="con3">• 256 дубовых досок</p>
+                <p class="con3">• 128 еловых досок</p>
+                <p class="con3">• 64 земли</p>
+                <p class="con3">• 64 песка</p>
+                <p class="con3">• 128 булыжника</p>
+                <p class="con3">После добычи данных ресурсов вам следует найти место своего поселения и расчистить
+                    чанк от посторонних блоков (включить просмотр чанков F3 + G).</p>
 
-                <div class="con1">Создание Города</div>
-                <div class="con3">Когда вы добыли ресурсы и очистили чанк, введите команду: /t new Название_Города</div>
+                <h2 class="con4">Создание Города</h2>
+                <p class="con3">Когда вы добыли ресурсы и очистили чанк, введите команду: /t new Название_Города</p>
 
-                <div class="con1">Содержание Города</div>
-                <div class="con3">Вам следует зарабатывать деньги и вкладывать их в казну своего Города, ведь за
+                <h2 class="con4">Содержание Города</h2>
+                <p class="con3">Вам следует зарабатывать деньги и вкладывать их в казну своего Города, ведь за
                     содержание следует платить налоги. Если казна будет пуста, то через 24 часа ваш Город превратится в
-                    руины.</div>
-                <div class="con3">Для пополнения казны напишите команду: /t deposit Сумма</div>
+                    руины.</p>
+                <p class="con3">Для пополнения казны напишите команду: /t deposit Сумма</p>
 
-                <div class="con1">Расширения</div>
-                <div class="con3">При создании у вас во владениях всего 1 чанк. Чтобы расширить свой Город, выйдите за
-                    пределы текущей территории и пропишите: /t claim.</div>
-                <div class="con3">Чтобы захватить больше территории и увеличить лимит чанков, приглашайте других игроков
-                    вступать в ваш Город.</div>
+                <h2 class="con4">Расширения</h2>
+                <p class="con3">При создании у вас во владениях всего 1 чанк. Чтобы расширить свой Город, выйдите за
+                    пределы текущей территории и пропишите: /t claim.</p>
+                <p class="con3">Чтобы захватить больше территории и увеличить лимит чанков, приглашайте других игроков
+                    вступать в ваш Город.</p>
 
-                <div class="con1">Хранилище и Века</div>
-                <div class="con3">Вы создали свой Город, но не можете крафтить продвинутые ресурсы (железные, алмазные
-                    инструменты, печки и т.д.)?</div>
-                <div class="con3">Вам нужно прокачивать свой Век Развития. Для просмотра требований напишите команду: /t
-                    centuries.</div>
-                <div class="con3">Более подробный гайд смотрите во вкладке "Века".</div>
+                <h2 class="con4">Хранилище и Века</h2>
+                <p class="con3">Вы создали свой Город, но не можете крафтить продвинутые ресурсы (железные, алмазные
+                    инструменты, печки и т.д.)?</p>
+                <p class="con3">Вам нужно прокачивать свой Век Развития. Для просмотра требований напишите команду: /t
+                    centuries.</p>
+                <p class="con3">Более подробный гайд смотрите во вкладке "Века".</p>
             </div>
 
             <!-- Content 7 -->
-            <div id="Content7" class="content-block hidden">
-                <section id="veka">
-                    <div class="con1">⚖️ Века</div>
+            <div id="veka" class="content-block hidden">
+                <section id="veka-section">
+                    <h1 class="con1">⚖️ Века</h1>
                 </section>
                 <div class="con2">🎮IP > mc.globeland.ru | Версия 1.21.4</div>
-                <div class="con1">Что такое Века?</div>
-                <div class="con3">Это уровень прокачки вашей цивилизации. Изначально после создания города вы находитесь
-                    в Первобытном обществе.</div>
-                <div class="con3">Вам доступны следующие крафты:</div>
-                <div class="con3">• Деревянные инструменты и оружие</div>
-                <div class="con3">• Каменная кирка</div>
-                <div class="con3">• Костёр</div>
-                <div class="con3">• Верстак</div>
-                <div class="con3">• Сундук</div>
-                <div class="con3">• Факел</div>
-                <div class="con3">• Лестница</div>
-                <div class="con3">• Миска</div>
-                <div class="con3">• Хлеб</div>
+                <h2 class="con4">Что такое Века?</h2>
+                <p class="con3">Это уровень прокачки вашей цивилизации. Изначально после создания города вы находитесь
+                    в Первобытном обществе.</p>
+                <p class="con3">Вам доступны следующие крафты:</p>
+                <p class="con3">• Деревянные инструменты и оружие</p>
+                <p class="con3">• Каменная кирка</p>
+                <p class="con3">• Костёр</p>
+                <p class="con3">• Верстак</p>
+                <p class="con3">• Сундук</p>
+                <p class="con3">• Факел</p>
+                <p class="con3">• Лестница</p>
+                <p class="con3">• Миска</p>
+                <p class="con3">• Хлеб</p>
 
-                <div class="con1">Переход на Новый Век</div>
-                <div class="con3">Для перехода в следующий век положите все необходимые ресурсы в городской инвентарь
+                <h2 class="con4">Переход на Новый Век</h2>
+                <p class="con3">Для перехода в следующий век положите все необходимые ресурсы в городской инвентарь
                     (командой <strong>/t inventory</strong>). После этого введите команду <strong>/t centuries</strong>,
                     выберите нужный век и система автоматически спишет ресурсы из инвентаря города. Ресурсы нужно
-                    сдавать сразу в полном объёме.</div>
+                    сдавать сразу в полном объёме.</p>
             </div>
 
             <!-- Content 8 -->
-            <div id="Content8" class="content-block hidden">
-                <section id="money">
-                    <div class="con1">💵 Заработок</div>
+            <div id="money" class="content-block hidden">
+                <section id="money-section">
+                    <h1 class="con1">💵 Заработок</h1>
                 </section>
                 <div class="con2">🎮IP > mc.globeland.ru | Версия 1.21.4</div>
-                <div class="con1">💰 Как заработать на сервере</div>
-                <div class="con3">1) 🛒 Продажа ресурсов на аукционе игрокам</div>
-                <div class="con3">Вы можете выставлять предметы на аукцион и продавать их другим игрокам. Команды:</div>
-                <div class="con7">• /ah — открыть аукцион</div>
-                <div class="con7">• /ah sell [цена] — выставить предмет из руки на продажу за монеты</div>
-                <div class="con7">• /ah sell [цена] Глоб — выставить предмет из руки на продажу за глобы</div>
-                <div class="con3">2) 🤝 Оказание услуг другим игрокам</div>
-                <div class="con7">Помимо аукциона можно заняться продажей алкоголя и редких кастомных вещей, главное не
-                    попасться местной мафии.</div>
-                <div class="con9">Полезные команды:</div>
-                <div class="con7">• /msg [ник] — написать личное сообщение</div>
-                <div class="con7">• /tpa [ник] — отправить запрос на телепортацию</div>
-                <div class="con7">• /tpaccept — принять запрос на телепортацию</div>
+                <h2 class="con4">💰 Как заработать на сервере</h2>
+                <h3 class="con17">1) 🛒 Продажа ресурсов на аукционе игрокам</h3>
+                <p class="con3">Вы можете выставлять предметы на аукцион и продавать их другим игрокам. Команды:</p>
+                <p class="con7">• /ah — открыть аукцион</p>
+                <p class="con7">• /ah sell [цена] — выставить предмет из руки на продажу за монеты</p>
+                <p class="con7">• /ah sell [цена] Глоб — выставить предмет из руки на продажу за глобы</p>
+                <h3 class="con17">2) 🤝 Оказание услуг другим игрокам</h3>
+                <p class="con7">Помимо аукциона можно заняться продажей алкоголя и редких кастомных вещей, главное не
+                    попасться местной мафии.</p>
+                <p class="con9">Полезные команды:</p>
+                <p class="con7">• /msg [ник] — написать личное сообщение</p>
+                <p class="con7">• /tpa [ник] — отправить запрос на телепортацию</p>
+                <p class="con7">• /tpaccept — принять запрос на телепортацию</p>
             </div>
 
             <!-- Content 9 -->
-            <div id="Content9" class="content-block hidden">
-                <section id="auction">
-                    <div class="con1">💲 Аукцион</div>
+            <div id="auction" class="content-block hidden">
+                <section id="auction-section">
+                    <h1 class="con1">💲 Аукцион</h1>
                 </section>
                 <div class="con2">🎮IP > mc.globeland.ru | Версия 1.21.4</div>
-                <div class="con1">Как продавать ресурсы на аукционе? 💸</div>
-                <div class="con7">Чтобы начать продавать ресурсы другим игрокам, используйте Аукцион — /ah.</div>
-                <div class="con7">Следите за ценами и спросом: так вы сможете не только хорошо продавать, но и выгодно
-                    перепродавать редкие/популярные ресурсы. 📈💎</div>
-                <div class="con3">🛒 Команды аукциона</div>
-                <div class="con7">• /ah — открыть аукцион</div>
-                <div class="con7">• /ah sell [цена] — выставить предмет из руки на продажу за монеты</div>
-                <div class="con7">• /ah sell [цена] Глоб — выставить предмет из руки на продажу за глобы</div>
-                <div class="con3">🔁 Переключатель валюты покупки</div>
-                <div class="con7">На аукционе есть переключатель, который меняет валюту покупки (монеты/глобы) —
-                    используйте его, чтобы смотреть лоты в нужной валюте.</div>
+                <h2 class="con4">Как продавать ресурсы на аукционе? 💸</h2>
+                <p class="con7">Чтобы начать продавать ресурсы другим игрокам, используйте Аукцион — /ah.</p>
+                <p class="con7">Следите за ценами и спросом: так вы сможете не только хорошо продавать, но и выгодно
+                    перепродавать редкие/популярные ресурсы. 📈💎</p>
+                <h3 class="con17">🛒 Команды аукциона</h3>
+                <p class="con7">• /ah — открыть аукцион</p>
+                <p class="con7">• /ah sell [цена] — выставить предмет из руки на продажу за монеты</p>
+                <p class="con7">• /ah sell [цена] Глоб — выставить предмет из руки на продажу за глобы</p>
+                <h3 class="con17">🔁 Переключатель валюты покупки</h3>
+                <p class="con7">На аукционе есть переключатель, который меняет валюту покупки (монеты/глобы) —
+                    используйте его, чтобы смотреть лоты в нужной валюте.</p>
             </div>
 
             <!-- Content 10 -->
-            <div id="Content10" class="content-block hidden">
-                <section id="custom">
-                    <div class="con1">🌟 Кастомные предметы</div>
+            <div id="custom" class="content-block hidden">
+                <section id="custom-section">
+                    <h1 class="con1">🌟 Кастомные предметы</h1>
                 </section>
                 <div class="con2">🎮IP > mc.globeland.ru | Версия 1.21.4</div>
-                <div class="con1">Что такое кастомные предметы?</div>
-                <div class="con7">Это просто лютая БОМБА! Ниже представлены рецепты крафта предметов:</div>
+                <h2 class="con4">Что такое кастомные предметы?</h2>
+                <p class="con7">Это просто лютая БОМБА! Ниже представлены рецепты крафта предметов:</p>
 
                 <div class="custom-items-grid">
                     <div class="item-card">
@@ -338,13 +362,13 @@
             </div>
 
             <!-- Content 11 -->
-            <div id="Content11" class="content-block hidden">
-                <section id="commands">
-                    <div class="con1">💎 Команды проекта</div>
+            <div id="commands" class="content-block hidden">
+                <section id="commands-section">
+                    <h1 class="con1">💎 Команды проекта</h1>
                 </section>
                 <div class="con2">🎮IP > mc.globeland.ru | Версия 1.21.4</div>
 
-                <div class="con1">Город 🏢</div>
+                <h2 class="con4">Город 🏢</h2>
                 <div class="table-wrapper">
                     <table class="team-table" id="Town">
                         <thead>
@@ -825,14 +849,14 @@
             </div>
 
             <!-- Content 12 -->
-            <div id="Content12" class="content-block hidden">
-                <section id="donate">
-                    <div class="con1">📜 Донат, описание</div>
+            <div id="donate" class="content-block hidden">
+                <section id="donate-section">
+                    <h1 class="con1">📜 Донат, описание</h1>
                 </section>
                 <div class="con2">🎮IP > mc.globeland.ru | Версия 1.21.4</div>
-                <div class="con1">Что такое привилегии?</div>
-                <div class="con7">Это большие возможности, возвышенность над игроками!</div>
-                <div class="con7">Каждая привилегия выше другой имеет её права:</div>
+                <h2 class="con4">Что такое привилегии?</h2>
+                <p class="con7">Это большие возможности, возвышенность над игроками!</p>
+                <p class="con7">Каждая привилегия выше другой имеет её права:</p>
 
                 <div class="ranks-widget">
                     <div class="tabs">
@@ -847,45 +871,45 @@
             </div>
 
             <!-- Content 13 -->
-            <div id="Content13" class="content-block hidden">
-                <section id="spawners">
-                    <div class="con1">💀 Система спавнеров</div>
+            <div id="spawners" class="content-block hidden">
+                <section id="spawners-section">
+                    <h1 class="con1">💀 Система спавнеров</h1>
                 </section>
                 <div class="con2">🎮IP > mc.globeland.ru | Версия 1.21.4</div>
-                <div class="con1">Что такое СПАВНЕР?</div>
-                <div class="con7">Спавнер — это источник пассивного получения лута, который копит ресурсы внутри себя.
+                <h2 class="con4">Что такое СПАВНЕР?</h2>
+                <p class="con7">Спавнер — это источник пассивного получения лута, который копит ресурсы внутри себя.
                     Он не зависит от обычного спавна мобов: мобы физически не появляются, а лут просто накапливается.
-                </div>
-                <div class="con7">🔥 Это самый выгодный источник монет для Скупщика: собираете лут со спавнеров → сдаёте
-                    в /buyer → получаете стабильный доход. Фермы и «классический» спавн мобов не нужны.</div>
-                <div class="con2">⚙️ Как работает спавнер</div>
-                <div class="con7">Спавнер работает, только если вы находитесь в том же чанке, где он установлен. Если
-                    хранилище спавнера заполняется на 100%, его работа останавливается, пока вы не заберёте лут.</div>
-                <div class="con2">🧰 Управление спавнером (ПКМ по спавнеру)</div>
-                <div class="con7">В меню спавнера можно:</div>
-                <div class="con17">Посмотреть информацию (наведите на голову моба):</div>
+                </p>
+                <p class="con7">🔥 Это самый выгодный источник монет для Скупщика: собираете лут со спавнеров → сдаёте
+                    в /buyer → получаете стабильный доход. Фермы и «классический» спавн мобов не нужны.</p>
+                <h2 class="con4">⚙️ Как работает спавнер</h2>
+                <p class="con7">Спавнер работает, только если вы находитесь в том же чанке, где он установлен. Если
+                    хранилище спавнера заполняется на 100%, его работа останавливается, пока вы не заберёте лут.</p>
+                <h2 class="con4">🧰 Управление спавнером (ПКМ по спавнеру)</h2>
+                <p class="con7">В меню спавнера можно:</p>
+                <h3 class="con17">Посмотреть информацию (наведите на голову моба):</h3>
                 <div class="con16">% заполненности</div>
                 <div class="con16">множитель (уровень/стак спавнера)</div>
-                <div class="con17">Забрать накопленный лут (кнопка выдачи)</div>
-                <div class="con2">📈 Прокачка (стакинг) спавнера</div>
-                <div class="con7">Спавнеры стакуются — это увеличивает множитель и доход. Как прокачать:</div>
-                <div class="con7">1. Поставьте спавнер.</div>
-                <div class="con7">2. Возьмите такой же спавнер в руку.</div>
-                <div class="con7">3. Нажмите по установленному спавнеру ПКМ → уровень увеличится.</div>
-                <div class="con7">ℹ️ При разборе улучшенного спавнера спавнеры выпадают по одному, а уровень
-                    уменьшается.</div>
+                <h3 class="con17">Забрать накопленный лут (кнопка выдачи)</h3>
+                <h2 class="con4">📈 Прокачка (стакинг) спавнера</h2>
+                <p class="con7">Спавнеры стакуются — это увеличивает множитель и доход. Как прокачать:</p>
+                <p class="con7">1. Поставьте спавнер.</p>
+                <p class="con7">2. Возьмите такой же спавнер в руку.</p>
+                <p class="con7">3. Нажмите по установленному спавнеру ПКМ → уровень увеличится.</p>
+                <p class="con7">ℹ️ При разборе улучшенного спавнера спавнеры выпадают по одному, а уровень
+                    уменьшается.</p>
             </div>
 
             <!-- Content 14 -->
-            <div id="Content14" class="content-block hidden">
-                <section id="pack">
-                    <div class="con1">💠 Ресурс-пак</div>
+            <div id="pack" class="content-block hidden">
+                <section id="pack-section">
+                    <h1 class="con1">💠 Ресурс-пак</h1>
                 </section>
                 <div class="con2">🎮IP > mc.globeland.ru | Версия 1.21.4</div>
-                <div class="con1">Зачем нужен ресурс-пак?</div>
-                <div class="con7">Без ресурс-пака игра - это не игра. Если играть без него, то ничего интересного ты не
-                    увидишь, так что лучше поставь.</div>
-                <div class="con7">Ресурс-пак на 1.21.4+</div>
+                <h2 class="con4">Зачем нужен ресурс-пак?</h2>
+                <p class="con7">Без ресурс-пака игра - это не игра. Если играть без него, то ничего интересного ты не
+                    увидишь, так что лучше поставь.</p>
+                <h2 class="con4">Ресурс-пак на 1.21.4+</h2>
                 <div style="margin-top: 20px;">
                     <a href="https://disk.yandex.ru/d/H5vVRqip-iFa-w" target="_blank" class="mc-button">Скачать
                         Ресурс-пак</a>
@@ -893,58 +917,58 @@
             </div>
 
             <!-- Content 15 -->
-            <div id="Content15" class="content-block hidden">
-                <section id="war">
-                    <div class="con1">⚔️ Военные действия (Войны)</div>
+            <div id="war" class="content-block hidden">
+                <section id="war-section">
+                    <h1 class="con1">⚔️ Военные действия (Войны)</h1>
                 </section>
                 <div class="con2">🎮IP > mc.globeland.ru | Версия 1.21.4</div>
 
-                <div class="con1">Основные команды</div>
-                <div class="con7">• <strong>/war</strong> — открывает меню со списком противников, которым можно
-                    объявить войну.</div>
-                <div class="con7">• <strong>/warfare</strong> — меню управления войной (предметы, флаги захвата,
-                    штурмовой ТНТ, нейтралитет).</div>
-                <div class="con7">• <strong>/war end</strong> — если по какой-то причине мэр не выбрал исход войны в
-                    меню, эта команда принудительно открывает меню с исходом.</div>
+                <h2 class="con4">Основные команды</h2>
+                <p class="con7">• <strong>/war</strong> — открывает меню со списком противников, которым можно
+                    объявить войну.</p>
+                <p class="con7">• <strong>/warfare</strong> — меню управления войной (предметы, флаги захвата,
+                    штурмовой ТНТ, нейтралитет).</p>
+                <p class="con7">• <strong>/war end</strong> — если по какой-то причине мэр не выбрал исход войны в
+                    меню, эта команда принудительно открывает меню с исходом.</p>
 
-                <div class="con1">Требования для объявления войны (Зависимости)</div>
-                <div class="con3">Для того чтобы начать войну, должны быть соблюдены следующие условия:</div>
-                <div class="con7">1. 👥 <strong>Онлайн участников в сети:</strong></div>
+                <h2 class="con4">Требования для объявления войны (Зависимости)</h2>
+                <p class="con3">Для того чтобы начать войну, должны быть соблюдены следующие условия:</p>
+                <p class="con7">1. 👥 <strong>Онлайн участников в сети:</strong></p>
                 <div class="con16">У города <strong>защиты</strong> в сети должен находиться мэр и как минимум 2
                     участника.</div>
                 <div class="con16">У города <strong>атаки</strong> в сети должен находиться мэр и как минимум 1
                     участник.</div>
-                <div class="con7">2. ⚖️ <strong>Разница в развитии:</strong> Века городов не должны различаться более
-                    чем на 1.</div>
-                <div class="con7">3. 🏢 <strong>Военный институт:</strong> У города атаки обязательно должно быть
-                    приобретено здание "Военный институт" (покупается в /builds).</div>
+                <p class="con7">2. ⚖️ <strong>Разница в развитии:</strong> Века городов не должны различаться более
+                    чем на 1.</p>
+                <p class="con7">3. 🏢 <strong>Военный институт:</strong> У города атаки обязательно должно быть
+                    приобретено здание "Военный институт" (покупается в /builds).</p>
             </div>
 
             <!-- Content 16 -->
-            <div id="Content16" class="content-block hidden">
-                <section id="builds">
-                    <div class="con1">🏢 Городские здания</div>
+            <div id="builds" class="content-block hidden">
+                <section id="builds-section">
+                    <h1 class="con1">🏢 Городские здания</h1>
                 </section>
                 <div class="con2">🎮IP > mc.globeland.ru | Версия 1.21.4</div>
 
-                <div class="con1">Общая информация</div>
-                <div class="con3">Мэр города может улучшать свое поселение, покупая различные функциональные
-                    (нефизические) здания. Меню покупки открывается командой: <strong>/builds</strong></div>
+                <h2 class="con4">Общая информация</h2>
+                <p class="con3">Мэр города может улучшать свое поселение, покупая различные функциональные
+                    (нефизические) здания. Меню покупки открывается командой: <strong>/builds</strong></p>
 
-                <div class="con1">Доступные здания:</div>
+                <h2 class="con4">Доступные здания:</h2>
 
-                <div class="con17">📦 Городское хранилище</div>
+                <h3 class="con17">📦 Городское хранилище</h3>
                 <div class="con16">Увеличивает общую вместимость городского инвентаря (доступ к инвентарю:
                     <strong>/inventory</strong> или <strong>/t inventory</strong>).
                 </div>
 
-                <div class="con17">📉 Институт рынка</div>
+                <h3 class="con17">📉 Институт рынка</h3>
                 <div class="con16">Уменьшает ежедневный налог на содержание вашего города.</div>
 
-                <div class="con17">🏰 Резиденция мэра</div>
+                <h3 class="con17">🏰 Резиденция мэра</h3>
                 <div class="con16">Добавляет дополнительные бонусные чанки к территории города.</div>
 
-                <div class="con17">⚔️ Военный институт</div>
+                <h3 class="con17">⚔️ Военный институт</h3>
                 <div class="con16">Открывает доступ к военным действиям (необходим для объявления войны другим городам).
                 </div>
             </div>

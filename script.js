@@ -1,78 +1,158 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // ───── НАСТРОЙКА НАВИГАЦИИ ПО ВЫБОРОЧНЫМ ВЛАДКАМ ─────
-    const buttons = [
-        'button1', 'button2', 'button3', 'button4', 'button6', 'button7',
-        'button8', 'button9', 'button10', 'button11', 'button12', 'button13',
-        'button14', 'button15', 'button16', 'button17'
-    ];
+    // ───── НАСТРОЙКА НАВИГАЦИИ ПО ВЫБОРОЧНЫМ ВЛАДКАМ (data-target) ─────
+    const sidebarButtons = document.querySelectorAll('.sidebar-btn');
+    const contentBlocks = document.querySelectorAll('.content-block');
 
-    const contentIds = [
-        'Content1', 'Content2', 'Content3', 'Content4', 'Content6', 'Content7',
-        'Content8', 'Content9', 'Content10', 'Content11', 'Content12', 'Content13',
-        'Content14', 'Content15', 'Content16'
-    ];
-
-    const buttonContentMap = {
-        'button1': 'Content1',
-        'button2': 'Content2',
-        'button3': 'Content3',
-        'button4': 'Content4',
-        'button6': 'Content6',
-        'button7': 'Content7',
-        'button8': 'Content8',
-        'button9': 'Content9',
-        'button10': 'Content10',
-        'button11': 'Content11',
-        'button12': 'Content12',
-        'button13': 'Content13',
-        'button14': 'Content15',
-        'button16': 'Content14',
-        'button17': 'Content16'
-    };
-
-    buttons.forEach(btnId => {
-        const btn = document.getElementById(btnId);
-        if (!btn) return;
-
+    sidebarButtons.forEach(btn => {
         btn.addEventListener('click', function () {
-            // Сброс активного класса для всех кнопок бокового меню
-            buttons.forEach(id => {
-                const b = document.getElementById(id);
-                if (b) b.classList.remove('active');
-            });
+            const targetId = this.dataset.target;
+            if (!targetId) return;
 
-            // Установка активного класса на нажатую кнопку
+            // Сброс активного класса для всех кнопок
+            sidebarButtons.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
 
-            const targetContentId = buttonContentMap[btnId];
-            if (targetContentId) {
-                // Плавное скрытие текущих открытых блоков
-                contentIds.forEach(cId => {
-                    const c = document.getElementById(cId);
-                    if (c && !c.classList.contains('hidden') && cId !== targetContentId) {
-                        c.classList.add('fade-out');
-                        c.classList.remove('fade-in');
+            const targetContent = document.getElementById(targetId);
+            if (targetContent) {
+                // Скрываем все блоки с плавной анимацией затухания
+                contentBlocks.forEach(block => {
+                    if (!block.classList.contains('hidden') && block.id !== targetId) {
+                        block.classList.add('fade-out');
+                        block.classList.remove('fade-in');
                     }
                 });
 
-                // Переключение отображения с задержкой под анимацию (150ms)
+                // Переключаем отображение с задержкой под анимацию (150ms)
                 setTimeout(() => {
-                    contentIds.forEach(cId => {
-                        const c = document.getElementById(cId);
-                        if (c) {
-                            if (cId === targetContentId) {
-                                c.classList.remove('hidden');
-                                c.classList.add('fade-in');
-                                c.classList.remove('fade-out');
-                            } else {
-                                c.classList.add('hidden');
-                            }
+                    contentBlocks.forEach(block => {
+                        if (block.id === targetId) {
+                            block.classList.remove('hidden');
+                            block.classList.add('fade-in');
+                            block.classList.remove('fade-out');
+                        } else {
+                            block.classList.add('hidden');
                         }
                     });
                 }, 150);
             }
         });
     });
+
+    // ───── КОПИРОВАНИЕ IP АДРЕСА ─────
+    const ipCopyBtn = document.getElementById('ip-copy-btn');
+    const ipTooltip = document.getElementById('ip-tooltip');
+    if (ipCopyBtn && ipTooltip) {
+        ipCopyBtn.addEventListener('click', () => {
+            const ip = "mc.globeland.ru";
+            navigator.clipboard.writeText(ip).then(() => {
+                ipTooltip.textContent = "Скопировано!";
+                ipTooltip.classList.add('copied');
+                setTimeout(() => {
+                    ipTooltip.textContent = "Скопировать";
+                    ipTooltip.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Не удалось скопировать IP: ', err);
+            });
+        });
+    }
+
+    // ───── ДИНАМИЧЕСКИЕ КНОПКИ КОПИРОВАНИЯ КОМАНД ─────
+    document.querySelectorAll('.team-table tbody tr').forEach(row => {
+        const firstCell = row.cells[0];
+        if (firstCell) {
+            const commandText = firstCell.textContent.trim();
+            // Проверяем, является ли текст в ячейке командой
+            if (commandText && (commandText.startsWith('/') || commandText.startsWith('!'))) {
+                firstCell.innerHTML = `
+                    <span class="cmd-text">${commandText}</span>
+                    <button class="copy-cmd-btn" title="Скопировать команду" data-command="${commandText}">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                `;
+            }
+        }
+    });
+
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.copy-cmd-btn');
+        if (btn) {
+            const cmd = btn.dataset.command;
+            navigator.clipboard.writeText(cmd).then(() => {
+                const originalHTML = btn.innerHTML;
+                btn.innerHTML = `
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary-accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                `;
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                }, 1500);
+            }).catch(err => {
+                console.error('Ошибка копирования: ', err);
+            });
+        }
+    });
+
+    // ───── ПОИСК ПО БАЗЕ ЗНАНИЙ (WIKI SEARCH) ─────
+    const searchInput = document.getElementById('wiki-search');
+    const searchClear = document.getElementById('search-clear');
+
+    if (searchInput) {
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase().trim();
+            
+            if (query.length > 0) {
+                if (searchClear) searchClear.style.display = 'block';
+            } else {
+                if (searchClear) searchClear.style.display = 'none';
+            }
+
+            let firstVisibleBtn = null;
+
+            sidebarButtons.forEach(btn => {
+                const targetId = btn.dataset.target;
+                if (!targetId) return;
+
+                const contentDiv = document.getElementById(targetId);
+                if (!contentDiv) return;
+
+                // Поиск по текстовому содержимому блока
+                const textContent = contentDiv.textContent.toLowerCase();
+                
+                if (textContent.includes(query)) {
+                    btn.style.display = '';
+                    if (!firstVisibleBtn) firstVisibleBtn = btn;
+                } else {
+                    btn.style.display = 'none';
+                }
+            });
+
+            // Если текущая вкладка скрылась, переключаем на первую доступную
+            const activeBtn = document.querySelector('.sidebar-btn.active');
+            if (activeBtn && activeBtn.style.display === 'none' && firstVisibleBtn) {
+                firstVisibleBtn.click();
+            }
+        });
+
+        if (searchClear) {
+            searchClear.addEventListener('click', () => {
+                searchInput.value = '';
+                searchClear.style.display = 'none';
+                sidebarButtons.forEach(btn => {
+                    btn.style.display = '';
+                });
+                // Возвращаемся на первую вкладку
+                if (sidebarButtons.length) {
+                    sidebarButtons[0].click();
+                }
+                searchInput.focus();
+            });
+        }
+    }
 
     // ───── ВИДЖЕТ ОПИСАНИЯ ДОНАТ-ПРИВИЛЕГИЙ (РАНГОВ) ─────
     const ranks = {
