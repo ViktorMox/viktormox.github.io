@@ -48,6 +48,13 @@ nav {
   padding: 0 20px;
 }
 
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex: 1;
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -233,20 +240,37 @@ nav {
   scrollbar-color: rgba(255, 255, 255, 0.08) transparent;
 }
 
-/* Поиск по вики */
+/* ───── ПОИСК ПО БАЗЕ ЗНАНИЙ (WIKI SEARCH) ───── */
 .search-container {
   position: relative;
-  margin-bottom: 12px;
+  width: 100%;
+  max-width: 290px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  color: #777777;
+  pointer-events: none;
+  transition: color 0.25s ease;
+  z-index: 2;
 }
 
 #wiki-search {
   width: 100%;
   box-sizing: border-box;
-  background: rgba(20, 20, 20, 0.8);
+  background: rgba(18, 18, 18, 0.85);
   border: 1px solid var(--surface-border);
   color: #ffffff;
-  padding: 10px 35px 10px 12px;
-  border-radius: 8px;
+  padding: 8px 64px 8px 34px;
+  border-radius: 20px;
   font-size: 13px;
   font-family: var(--font-family);
   transition: all 0.25s ease;
@@ -255,25 +279,268 @@ nav {
 #wiki-search:focus {
   outline: none;
   border-color: var(--primary-accent);
-  box-shadow: 0 0 10px var(--primary-glow);
-  background: rgba(30, 30, 30, 0.9);
+  background: rgba(26, 26, 26, 0.95);
+  box-shadow: 0 0 14px var(--primary-glow);
+}
+
+.search-input-wrapper:focus-within .search-icon {
+  color: var(--primary-accent);
+}
+
+.search-shortcut {
+  position: absolute;
+  right: 12px;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-family: var(--font-mono);
+  color: #777777;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  pointer-events: none;
+  user-select: none;
+  transition: opacity 0.2s ease;
+}
+
+.search-input-wrapper.has-text .search-shortcut {
+  display: none;
 }
 
 .search-clear-btn {
   position: absolute;
-  right: 12px;
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
-  color: #666;
+  background: none;
+  border: none;
+  color: #777777;
   cursor: pointer;
   font-size: 18px;
+  padding: 0 4px;
   display: none;
   line-height: 1;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .search-clear-btn:hover {
-  color: #fff;
+  color: var(--primary-accent);
+  transform: translateY(-50%) scale(1.15);
+}
+
+.search-input-wrapper.has-text .search-clear-btn {
+  display: block;
+}
+
+/* Выпадающий список результатов поиска */
+.search-results-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  width: 480px;
+  max-height: 480px;
+  background: rgba(16, 16, 16, 0.96);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(0, 255, 204, 0.25);
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 255, 204, 0.12);
+  overflow-y: auto;
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 255, 204, 0.25) transparent;
+  animation: searchDropdownFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.search-results-dropdown::-webkit-scrollbar {
+  width: 5px;
+}
+
+.search-results-dropdown::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.search-results-dropdown::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 204, 0.25);
+  border-radius: 4px;
+}
+
+.search-results-dropdown::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-accent);
+}
+
+@keyframes searchDropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.search-dropdown-header {
+  padding: 10px 14px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  font-weight: 700;
+  color: #888888;
+  border-bottom: 1px solid var(--surface-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background: rgba(16, 16, 16, 0.98);
+  z-index: 3;
+}
+
+.search-dropdown-header .search-count {
+  color: var(--primary-accent);
+  font-weight: 700;
+}
+
+.search-results-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-result-item {
+  padding: 11px 14px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  transition: background 0.15s ease, border-color 0.15s ease, padding-left 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-left: 3px solid transparent;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover,
+.search-result-item.selected {
+  background: rgba(0, 255, 204, 0.08);
+  border-left-color: var(--primary-accent);
+  padding-left: 16px;
+}
+
+.search-result-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+}
+
+.search-result-badge {
+  background: rgba(0, 255, 204, 0.1);
+  color: var(--primary-accent);
+  border: 1px solid rgba(0, 255, 204, 0.25);
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.search-result-subtitle {
+  color: #777777;
+  font-size: 11px;
+}
+
+.search-result-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.search-result-snippet {
+  font-size: 12px;
+  color: #a8a8a8;
+  line-height: 1.45;
+  word-break: break-word;
+}
+
+mark.search-highlight {
+  background: rgba(0, 255, 204, 0.25);
+  color: #00ffcc;
+  padding: 1px 3px;
+  border-radius: 3px;
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(0, 255, 204, 0.5);
+  border-bottom: 1px solid var(--primary-accent);
+}
+
+.search-no-results,
+.search-hint {
+  padding: 24px 16px;
+  text-align: center;
+  color: #888888;
+  font-size: 13px;
+}
+
+.search-no-results-icon {
+  font-size: 26px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.search-dropdown-footer {
+  padding: 8px 14px;
+  font-size: 11px;
+  color: #666666;
+  border-top: 1px solid var(--surface-border);
+  background: rgba(12, 12, 12, 0.98);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  bottom: 0;
+  z-index: 3;
+}
+
+.search-footer-keys {
+  display: flex;
+  gap: 6px;
+}
+
+.search-footer-keys kbd {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1px 5px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 9px;
+  font-family: var(--font-mono);
+  color: #aaaaaa;
+}
+
+/* Анимация пульсации найденного элемента на странице */
+@keyframes searchTargetPulse {
+  0% {
+    background-color: rgba(0, 255, 204, 0.35);
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.6);
+    outline: 2px solid var(--primary-accent);
+  }
+  60% {
+    background-color: rgba(0, 255, 204, 0.15);
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+    outline: 2px solid var(--primary-accent);
+  }
+  100% {
+    background-color: transparent;
+    box-shadow: none;
+    outline: 2px solid transparent;
+  }
+}
+
+.search-target-flash {
+  animation: searchTargetPulse 2.8s ease-out forwards;
+  border-radius: 6px;
 }
 
 /* Красивая кастомная полоса прокрутки для боковой панели */
@@ -863,6 +1130,23 @@ nav {
     padding: 0 15px;
   }
 
+  .nav-left {
+    gap: 14px;
+    max-width: none;
+  }
+
+  .search-container {
+    max-width: 200px;
+  }
+
+  .search-shortcut {
+    display: none !important;
+  }
+
+  .search-results-dropdown {
+    width: 360px;
+  }
+
   .nav-links {
     gap: 15px;
   }
@@ -876,6 +1160,35 @@ nav {
   .logo-text {
     display: none;
     /* скрываем текст логотипа на очень маленьких экранах */
+  }
+
+  .nav-left {
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .search-container {
+    max-width: none;
+    flex: 1;
+  }
+
+  #wiki-search {
+    padding: 7px 30px 7px 32px;
+    font-size: 12px;
+  }
+
+  .search-results-dropdown {
+    position: fixed;
+    top: 75px;
+    left: 10px;
+    right: 10px;
+    width: auto;
+    max-height: calc(100vh - 90px);
+  }
+
+  .search-dropdown-footer .search-footer-keys {
+    display: none;
   }
 
   .con1 {

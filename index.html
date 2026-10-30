@@ -23,12 +23,28 @@
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <a href="https://wiki.svastonland.ru" class="logo">
-                <div class="logo-icon">
-                    <img src="https://i.postimg.cc/S2b5KGjH/logo.png" alt="Логотип">
+            <div class="nav-left">
+                <a href="https://wiki.svastonland.ru" class="logo">
+                    <div class="logo-icon">
+                        <img src="https://i.postimg.cc/S2b5KGjH/logo.png" alt="Логотип">
+                    </div>
+                    <span class="logo-text">GlobeLand[WIKI]</span>
+                </a>
+
+                <!-- Поиск по базе знаний (Wiki Search) -->
+                <div class="search-container" id="search-container">
+                    <div class="search-input-wrapper" id="search-input-wrapper">
+                        <svg class="search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <input type="text" id="wiki-search" placeholder="Поиск по wiki..." autocomplete="off" spellcheck="false">
+                        <span class="search-shortcut" title="Нажмите Ctrl+K или / для быстрого поиска">Ctrl+K</span>
+                        <button type="button" class="search-clear-btn" id="search-clear" title="Очистить поиск">&times;</button>
+                    </div>
+                    <div class="search-results-dropdown" id="search-results-dropdown" style="display: none;"></div>
                 </div>
-                <span class="logo-text">GlobeLand[WIKI]</span>
-            </a>
+            </div>
             
             <!-- IP Copy Container -->
             <div class="server-ip-container" id="ip-copy-btn" title="Нажмите, чтобы скопировать IP">
@@ -46,11 +62,6 @@
     <div class="main-container">
         <!-- Sidebar Navigation -->
         <aside class="sidebar">
-            <div class="search-container">
-                <input type="text" id="wiki-search" placeholder="Поиск по wiki...">
-                <span class="search-clear-btn" id="search-clear" title="Очистить поиск">&times;</span>
-            </div>
-
             <button class="sidebar-btn active" data-target="info">👑 Основная информация</button>
 
             <h4 class="text">НАЧАЛО ИГРЫ</h4>
