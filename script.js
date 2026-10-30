@@ -125,31 +125,31 @@ document.addEventListener('DOMContentLoaded', () => {
         knight: {
             name: "Адепт",
             tag: "knight",
-            commands: ["/kit", "/crawl", "/hat", "/workbench", "/suicide"],
+            commands: ["/crawl", "/hat", "/workbench", "/suicide"],
             perks: ["2 дома", "Телепортация 4 секунды"]
         },
         duke: {
             name: "Барон",
             tag: "duke",
-            commands: ["/kit", "/ec", "/afk", "/feed", "/ext", "/loom", "/clear", "/ptime", "/pweather"],
+            commands: ["/ec", "/afk", "/feed", "/ext", "/loom", "/clear", "/ptime", "/pweather"],
             perks: ["3 дома", "Телепортация 3 секунды"]
         },
         graf: {
             name: "Паладин",
             tag: "graf",
-            commands: ["/kit", "/back", "/heal", "/ec [ник]", "/repair", "/top", "/stonecutter"],
+            commands: ["/back", "/heal", "/ec [ник]", "/repair", "/top", "/stonecutter"],
             perks: ["4 дома", "Телепортация 2 секунды"]
         },
         king: {
             name: "Маршал",
             tag: "king",
-            commands: ["/kit", "/ext [ник]", "/feed [ник]", "/jump", "/near", "/time", "/grindstone", "/smithingtable"],
+            commands: ["/ext [ник]", "/feed [ник]", "/near", "/time", "/grindstone", "/smithingtable"],
             perks: ["5 домов", "Телепортация 1 секунду"]
         },
         emperor: {
             name: "Император",
             tag: "emperor",
-            commands: ["/kit", "/anvil", "/broadcast", "/heal [ник]", "/repair all", "/tpahere", "/mute [ник] [время] [причина]"],
+            commands: ["/anvil", "/broadcast", "/heal [ник]", "/repair all", "/tpahere", "/mute [ник] [время] [причина]"],
             perks: ["Безлимитные дома", "Телепортация без задержки"]
         }
     };
