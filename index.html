@@ -83,7 +83,7 @@
             <button class="sidebar-btn" data-target="commands">💎 Команды проекта</button>
             <button class="sidebar-btn" data-target="donate">📜 Донат, описание</button>
             <button class="sidebar-btn" data-target="spawners">💀 Система спавнеров</button>
-            <button class="sidebar-btn" data-target="pack">💠 Ресурс-пак</button>
+            <button class="sidebar-btn" data-target="pack">💠 Ресурс-паки и моды</button>
 
             <h4 class="text">ВОЕННЫЕ ДЕЙСТВИЯ</h4>
             <button class="sidebar-btn" data-target="war">⚔️ Войны</button>
@@ -914,17 +914,103 @@
             <!-- Content 14 -->
             <div id="pack" class="content-block hidden">
                 <section id="pack-section">
-                    <h1 class="con1">💠 Ресурс-пак</h1>
+                    <h1 class="con1">💠 Ресурс-паки и моды</h1>
                 </section>
-                <div class="con2">🎮IP > mc.globeland.ru | Версия 1.21.4</div>
-                <h2 class="con4">Зачем нужен ресурс-пак?</h2>
-                <p class="con7">Без ресурс-пака игра - это не игра. Если играть без него, то ничего интересного ты не
-                    увидишь, так что лучше поставь.</p>
-                <h2 class="con4">Ресурс-пак на 1.21.4+</h2>
-                <div style="margin-top: 20px;">
-                    <a href="https://disk.yandex.ru/d/H5vVRqip-iFa-w" target="_blank" class="mc-button">Скачать
-                        Ресурс-пак</a>
+                <div class="con2">🎮IP > mc.globeland.ru | Версия 1.21.4+</div>
+
+                <h2 class="con4">📦 Серверный ресурс-пак (актуальная версия)</h2>
+                <p class="con3">Ресурс-пак открывает весь визуал GlobeLand: кастомное оружие, 3D-броню, уникальные
+                    предметы, иконки меню и звуки сервера. При входе сервер предложит скачать его автоматически, но
+                    <strong>ручная установка в папку игры</strong> работает быстрее и убирает подгрузки при каждом
+                    перезаходе.</p>
+
+                <div class="pack-download-card">
+                    <div class="pack-download-main">
+                        <div class="pack-download-info">
+                            <div class="pack-title-row">
+                                <h3>GlobeLand-Pack.zip</h3>
+                                <span class="pack-badge-live">Актуально</span>
+                            </div>
+                            <p class="con7" style="margin-bottom: 12px;">Прямое скачивание самой свежей сборки напрямую с
+                                сайта — без сторонних дисков и ожидания.</p>
+                            <div class="pack-meta-row" id="pack-meta-info">
+                                <span class="pack-meta-pill">🕒 Обновлён: <strong>15.11.2026 14:14</strong></span>
+                                <span class="pack-meta-pill">📦 Размер: <strong>9.79 MB</strong></span>
+                                <span class="pack-meta-pill">🎮 Версия: <strong>1.21.4+</strong></span>
+                                <span class="pack-meta-pill">🔐 SHA-1: <code>b1f4aab4</code></span>
+                            </div>
+                        </div>
+                        <a href="downloads/GlobeLand-Pack.zip?v=b1f4aab4" download="GlobeLand-Pack.zip"
+                            id="pack-download-btn" class="mc-button pack-download-cta">
+                            📥 Скачать ресурс-пак
+                        </a>
+                    </div>
                 </div>
+
+                <div class="con5">⚠️ <strong>Не распаковывайте архив!</strong> Внутри включена защита пака — обычный
+                    архиватор Windows или WinRAR покажет ошибку при открытии. Просто закиньте скачанный
+                    <code>.zip</code> целиком в папку <code>resourcepacks</code>, Minecraft загрузит его идеально.</div>
+
+                <h2 class="con4">🧩 Моды для 3D-брони и плащей (EMF + ETF)</h2>
+                <p class="con3">Чтобы видеть <strong>объёмные 3D-модели кастомной брони</strong> (шлемы с деталями,
+                    наплечники, шипы) и <strong>динамические 3D-плащи с анимацией движения</strong>, установите два
+                    лёгких клиентских мода на загрузчик <strong>Fabric</strong> (под вашу версию игры, 1.21.4+):</p>
+
+                <div class="mods-grid">
+                    <div class="mod-card">
+                        <div class="mod-card-header">
+                            <h3>Entity Model Features (EMF)</h3>
+                            <span class="mod-tag mod-tag-primary">3D-модели</span>
+                        </div>
+                        <p>Включает полноценную 3D-геометрию кастомной брони, физику динамических плащей и специальные
+                            анимации моделей на игроках.</p>
+                        <a href="https://modrinth.com/mod/entity-model-features" target="_blank"
+                            rel="noopener noreferrer" class="mc-button mod-link-btn">Скачать EMF на Modrinth</a>
+                    </div>
+
+                    <div class="mod-card">
+                        <div class="mod-card-header">
+                            <h3>Entity Texture Features (ETF)</h3>
+                            <span class="mod-tag">В паре с EMF</span>
+                        </div>
+                        <p>Обязательный мод-компаньон для EMF: обеспечивает корректные текстуры кастомных моделей,
+                            светящиеся элементы и детали экипировки.</p>
+                        <a href="https://modrinth.com/mod/entity-texture-features" target="_blank"
+                            rel="noopener noreferrer" class="mc-button mod-link-btn">Скачать ETF на Modrinth</a>
+                    </div>
+
+                    <div class="mod-card">
+                        <div class="mod-card-header">
+                            <h3>Fabric API</h3>
+                            <span class="mod-tag mod-tag-muted">База для Fabric</span>
+                        </div>
+                        <p>Базовая библиотека для запуска EMF и ETF на Fabric. Полностью совместима с модами
+                            оптимизации <strong>Sodium</strong> и шейдерами <strong>Iris</strong>.</p>
+                        <a href="https://modrinth.com/mod/fabric-api" target="_blank" rel="noopener noreferrer"
+                            class="mc-button mod-link-btn">Скачать Fabric API</a>
+                    </div>
+                </div>
+
+                <div class="pack-vanilla-note">
+                    <h3>🛡️ А если играть без модов (на чистой ваниле)?</h3>
+                    <p class="con7" style="margin-bottom: 0;">Зайти на сервер можно абсолютно спокойно без модов! Если
+                        EMF и ETF не установлены, ресурс-пак всё равно отработает корректно: вместо объёмной 3D-брони и
+                        плаща будет показан аккуратный ванильный скин-облик брони без поломанных текстур. Но для
+                        максимальной красоты советуем поставить <strong>EMF + ETF</strong>.</p>
+                </div>
+
+                <h2 class="con4">🛠️ Как установить за 1 минуту</h2>
+                <ul class="pack-steps-list">
+                    <li><strong>1. Установите ресурс-пак:</strong> скачайте <code>GlobeLand-Pack.zip</code> кнопкой
+                        выше, откройте в игре <em>Настройки → Пакеты ресурсов → Папка с наборами</em>, закиньте файл
+                        (не распаковывая!) и перенесите его в активные наборы. При обновлении просто замените файл и
+                        нажмите <code>F3 + T</code> в игре.</li>
+                    <li><strong>2. Поставьте моды (для 3D-эффектов):</strong> установите загрузчик
+                        <strong>Fabric</strong> под вашу версию (1.21.4 или новее) и скопируйте в папку
+                        <code>.minecraft/mods</code> три файла <code>.jar</code>: <strong>Fabric API</strong>,
+                        <strong>Entity Model Features (EMF)</strong> и <strong>Entity Texture Features (ETF)</strong>.
+                    </li>
+                </ul>
             </div>
 
             <!-- Content 15 -->

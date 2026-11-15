@@ -737,4 +737,44 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // ───── ДАННЫЕ АКТУАЛЬНОГО РЕСУРС-ПАКА ─────
+    const packMetaEl = document.getElementById('pack-meta-info');
+    const packDownloadBtn = document.getElementById('pack-download-btn');
+    if (packMetaEl || packDownloadBtn) {
+        fetch(`downloads/pack-info.json?t=${Date.now()}`, { cache: 'no-store' })
+            .then(res => (res.ok ? res.json() : Promise.reject(new Error(`HTTP ${res.status}`))))
+            .then(info => {
+                if (packDownloadBtn && info.fileName) {
+                    const verQuery = info.sha1Short ? `?v=${encodeURIComponent(info.sha1Short)}` : '';
+                    packDownloadBtn.href = `downloads/${encodeURIComponent(info.fileName)}${verQuery}`;
+                    packDownloadBtn.setAttribute('download', String(info.fileName));
+                }
+
+                if (packMetaEl) {
+                    const entries = [
+                        info.updatedLabel ? ['🕒 Обновлён: ', info.updatedLabel, false] : null,
+                        info.sizeMb ? ['📦 Размер: ', `${info.sizeMb} MB`, false] : null,
+                        info.mcVersion ? ['🎮 Версия: ', info.mcVersion, false] : null,
+                        info.sha1Short ? ['🔐 SHA-1: ', info.sha1Short, true] : null,
+                    ].filter(Boolean);
+
+                    if (entries.length > 0) {
+                        packMetaEl.textContent = '';
+                        entries.forEach(([label, val, isCode]) => {
+                            const span = document.createElement('span');
+                            span.className = 'pack-meta-pill';
+                            span.appendChild(document.createTextNode(label));
+                            const valEl = document.createElement(isCode ? 'code' : 'strong');
+                            valEl.textContent = String(val);
+                            span.appendChild(valEl);
+                            packMetaEl.appendChild(span);
+                        });
+                    }
+                }
+            })
+            .catch(() => {
+                // При открытии локально (file://) или ошибке сети остаются встроенные fallback-данные в HTML
+            });
+    }
 });
