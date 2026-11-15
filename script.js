@@ -125,32 +125,67 @@ document.addEventListener('DOMContentLoaded', () => {
         knight: {
             name: "Адепт",
             tag: "knight",
-            commands: ["/crawl", "/hat", "/workbench", "/suicide"],
-            perks: ["2 дома", "Телепортация 4 секунды"]
+            price: "39 ₽ навсегда",
+            commands: ["/hat", "/workbench (/craft)", "/suicide", "/kits (набор раз в 24ч)"],
+            perks: [
+                "До 2 точек дома (/sethome)",
+                "Аукцион: до 4 лотов (/ah)",
+                "Биржа заказов: до 4 ордеров (/orders)",
+                "+10% к опыту навыков (AuraSkills)",
+                "Мгновенная телепортация (0 сек.)"
+            ]
         },
         duke: {
             name: "Барон",
             tag: "duke",
-            commands: ["/ec", "/afk", "/feed", "/ext", "/loom", "/clear", "/ptime", "/pweather"],
-            perks: ["3 дома", "Телепортация 3 секунды"]
+            price: "69 ₽ навсегда",
+            commands: ["/ec (/enderchest)", "/afk", "/feed", "/ext", "/loom", "/clear (/ci)", "/ptime", "/pweather"],
+            perks: [
+                "До 3 точек дома (/sethome)",
+                "Аукцион: до 5 лотов (/ah)",
+                "Биржа заказов: до 5 ордеров (/orders)",
+                "+15% к опыту навыков (AuraSkills)",
+                "Набор Барона в /kits (раз в 48ч) + права Адепта"
+            ]
         },
         graf: {
             name: "Паладин",
             tag: "graf",
-            commands: ["/back", "/heal", "/ec [ник]", "/repair", "/top", "/stonecutter"],
-            perks: ["4 дома", "Телепортация 2 секунды"]
+            price: "109 ₽ навсегда",
+            commands: ["/back", "/heal", "/ec [ник]", "/repair (/fix)", "/top", "/stonecutter"],
+            perks: [
+                "До 4 точек дома (/sethome)",
+                "Аукцион: до 6 лотов (/ah)",
+                "Биржа заказов: до 6 ордеров (/orders)",
+                "+15% к опыту навыков (AuraSkills)",
+                "Набор Паладина в /kits (раз в 48ч) + права Барона"
+            ]
         },
         king: {
             name: "Маршал",
             tag: "king",
-            commands: ["/ext [ник]", "/feed [ник]", "/near", "/time", "/grindstone", "/smithingtable"],
-            perks: ["5 домов", "Телепортация 1 секунду"]
+            price: "149 ₽ навсегда",
+            commands: ["/near", "/time (/day, /night)", "/ext [ник]", "/feed [ник]", "/grindstone", "/smithingtable"],
+            perks: [
+                "До 5 точек дома (/sethome)",
+                "Аукцион: до 8 лотов (/ah)",
+                "Биржа заказов: до 8 ордеров (/orders)",
+                "+15% к опыту навыков (AuraSkills)",
+                "Набор Маршала в /kits (раз в 72ч) + права Паладина"
+            ]
         },
         emperor: {
             name: "Император",
             tag: "emperor",
-            commands: ["/anvil", "/broadcast", "/heal [ник]", "/repair all", "/tpahere", "/mute [ник] [время] [причина]"],
-            perks: ["Безлимитные дома", "Телепортация без задержки"]
+            price: "199 ₽ навсегда",
+            commands: ["/anvil", "/broadcast (/bc)", "/heal [ник]", "/repair all", "/tpahere", "/mute [ник] [время] [причина]", "/tempmute", "/unmute"],
+            perks: [
+                "До 100 точек дома (/sethome)",
+                "Аукцион: до 10 лотов (/ah)",
+                "Биржа заказов: до 10 ордеров (/orders)",
+                "+15% к опыту навыков (AuraSkills)",
+                "Набор Императора в /kits (раз в 96ч) + права Маршала"
+            ]
         }
     };
 
@@ -180,7 +215,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 content.innerHTML = `
                     <div class="rank-title">
-                        Ранг: <span class="rank-tag ${r.tag}">${r.name}</span>
+                        <span>Ранг: <span class="rank-tag ${r.tag}">${r.name}</span></span>
+                        <span class="rank-price-badge">${r.price}</span>
                     </div>
 
                     <div class="section-title">Команды</div>
@@ -359,7 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // ИНДЕКСИРУЕМ ДАННЫЕ ДОНАТ-ПРИВИЛЕГИЙ (РАНГОВ)
             Object.keys(ranks).forEach(key => {
                 const r = ranks[key];
-                const rankText = `${r.name} ${r.commands.join(' ')} ${r.perks.join(' ')}`;
+                const rankText = `${r.name} ${r.price} ${r.commands.join(' ')} ${r.perks.join(' ')}`;
                 searchIndex.push({
                     type: 'rank',
                     sectionId: 'donate',
