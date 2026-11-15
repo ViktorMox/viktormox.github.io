@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         knight: {
             name: "Адепт",
             tag: "knight",
-            price: "39 ₽ навсегда",
+            price: "299 ₽ навсегда",
             commands: ["/hat", "/workbench (/craft)", "/suicide", "/kits (набор раз в 24ч)"],
             perks: [
                 "До 2 точек дома (/sethome)",
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         duke: {
             name: "Барон",
             tag: "duke",
-            price: "69 ₽ навсегда",
+            price: "499 ₽ навсегда",
             commands: ["/ec (/enderchest)", "/afk", "/feed", "/ext", "/loom", "/clear (/ci)", "/ptime", "/pweather"],
             perks: [
                 "До 3 точек дома (/sethome)",
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
         graf: {
             name: "Паладин",
             tag: "graf",
-            price: "109 ₽ навсегда",
+            price: "799 ₽ навсегда",
             commands: ["/back", "/heal", "/ec [ник]", "/repair (/fix)", "/top", "/stonecutter"],
             perks: [
                 "До 4 точек дома (/sethome)",
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
         king: {
             name: "Маршал",
             tag: "king",
-            price: "149 ₽ навсегда",
+            price: "1099 ₽ навсегда",
             commands: ["/near", "/time (/day, /night)", "/ext [ник]", "/feed [ник]", "/grindstone", "/smithingtable"],
             perks: [
                 "До 5 точек дома (/sethome)",
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
         emperor: {
             name: "Император",
             tag: "emperor",
-            price: "199 ₽ навсегда",
+            price: "1499 ₽ навсегда",
             commands: ["/anvil", "/broadcast (/bc)", "/heal [ник]", "/repair all", "/tpahere", "/mute [ник] [время] [причина]", "/tempmute", "/unmute"],
             perks: [
                 "До 100 точек дома (/sethome)",

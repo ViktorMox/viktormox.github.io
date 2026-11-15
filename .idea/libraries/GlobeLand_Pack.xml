@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="GlobeLand-Pack">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/downloads/GlobeLand-Pack.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
