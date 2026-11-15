@@ -752,20 +752,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 if (packMetaEl) {
+                    const updatedDate = info.updatedLabel ? String(info.updatedLabel).split(' ')[0] : '';
                     const entries = [
-                        info.updatedLabel ? ['🕒 Обновлён: ', info.updatedLabel, false] : null,
-                        info.sizeMb ? ['📦 Размер: ', `${info.sizeMb} MB`, false] : null,
-                        info.mcVersion ? ['🎮 Версия: ', info.mcVersion, false] : null,
-                        info.sha1Short ? ['🔐 SHA-1: ', info.sha1Short, true] : null,
+                        updatedDate ? ['🕒 Обновлён: ', updatedDate] : null,
+                        info.sizeMb ? ['📦 Размер: ', `${info.sizeMb} MB`] : null,
                     ].filter(Boolean);
 
                     if (entries.length > 0) {
                         packMetaEl.textContent = '';
-                        entries.forEach(([label, val, isCode]) => {
+                        entries.forEach(([label, val]) => {
                             const span = document.createElement('span');
                             span.className = 'pack-meta-pill';
                             span.appendChild(document.createTextNode(label));
-                            const valEl = document.createElement(isCode ? 'code' : 'strong');
+                            const valEl = document.createElement('strong');
                             valEl.textContent = String(val);
                             span.appendChild(valEl);
                             packMetaEl.appendChild(span);

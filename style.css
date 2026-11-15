@@ -1137,15 +1137,9 @@ mark.search-highlight {
   padding: 4px 10px;
 }
 
-.pack-meta-pill strong,
-.pack-meta-pill code {
+.pack-meta-pill strong {
   color: #ffffff;
   font-weight: 600;
-}
-
-.pack-meta-pill code {
-  font-family: var(--font-mono);
-  color: #00ffcc;
 }
 
 .pack-download-cta {
