@@ -1664,3 +1664,176 @@ mark.search-highlight {
 .custom-gear-card li + li {
   margin-top: 4px;
 }
+
+/* ───── ИНТЕРАКТИВНАЯ ГИПЕРССЫЛКА НА 3D-КАРТУ МИРА ───── */
+@keyframes mapLivePulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 255, 204, 0.7);
+  }
+  50% {
+    transform: scale(1.12);
+    box-shadow: 0 0 0 6px rgba(0, 255, 204, 0);
+  }
+}
+
+.map-preview-card {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  border-color: rgba(0, 255, 204, 0.22);
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+.map-preview-card img {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.3s ease;
+}
+
+.map-preview-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 255, 204, 0.65);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.6), 0 0 22px rgba(0, 255, 204, 0.18);
+}
+
+.map-preview-card:hover img {
+  transform: scale(1.03);
+  filter: brightness(1.06);
+}
+
+.map-preview-overlay {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.map-live-badge,
+.map-preview-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.map-live-badge {
+  background: rgba(12, 16, 18, 0.82);
+  border: 1px solid rgba(0, 255, 204, 0.38);
+  color: #ffffff;
+}
+
+.map-preview-cta {
+  background: rgba(0, 255, 204, 0.92);
+  color: #0b1111;
+  box-shadow: 0 4px 16px rgba(0, 255, 204, 0.32);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.map-preview-card:hover .map-preview-cta {
+  background: #33ffd6;
+  transform: translateY(-1px);
+}
+
+.map-link-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.map-live-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(0, 255, 204, 0.16), rgba(0, 204, 255, 0.08));
+  border: 1px solid rgba(0, 255, 204, 0.42);
+  color: var(--primary-accent);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 0 14px rgba(0, 255, 204, 0.12);
+  transition: all 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.map-live-link:hover {
+  background: linear-gradient(135deg, rgba(0, 255, 204, 0.28), rgba(0, 204, 255, 0.16));
+  border-color: var(--primary-accent);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 255, 204, 0.28);
+}
+
+.map-live-link:active {
+  transform: translateY(0);
+}
+
+.map-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary-accent);
+  flex-shrink: 0;
+  animation: mapLivePulse 1.8s ease-in-out infinite;
+}
+
+.map-live-arrow {
+  display: inline-block;
+  font-size: 13px;
+  transition: transform 0.22s ease;
+}
+
+.map-live-link:hover .map-live-arrow,
+.map-preview-card:hover .map-live-arrow {
+  transform: translate(2px, -2px);
+}
+
+.map-cmd-hint {
+  color: #8c8c8c;
+  font-size: 13.5px;
+}
+
+.map-cmd-hint strong {
+  color: #d8d8d8;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.wiki-inline-link {
+  color: var(--primary-accent);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(0, 255, 204, 0.55);
+  transition: color 0.2s ease, border-color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.wiki-inline-link:hover {
+  color: #ffffff;
+  border-bottom-color: var(--primary-accent);
+  text-shadow: 0 0 10px rgba(0, 255, 204, 0.45);
+}
+
+@media (max-width: 600px) {
+  .map-preview-overlay {
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+  }
+
+  .map-live-badge,
+  .map-preview-cta {
+    padding: 4px 9px;
+    font-size: 11px;
+  }
+}
